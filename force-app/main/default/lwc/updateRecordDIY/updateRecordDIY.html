@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title = "Update Account Record">
+        <div class = "slds-var-p-around_medium">
+            <lightning-input type = "text" variant = "standard" name = "Id"  label = "Id" onchange={handleChange}></lightning-input>
+            <lightning-input type = "text" variant = "standard" name = "Name" label = "Name" onchange={handleChange}></lightning-input>
+            <lightning-input type = "text" variant = "standard" name = "Industry" label = "Industry" onchange={handleChange}></lightning-input>
+            <lightning-input type = "text" variant = "standard" name = "AnnualRevenue" label = "AnnualRevenue" onchange={handleChange}></lightning-input>
+        </div>
+        <div class = "slds-var-p-around_medium">
+            <lightning-button label = "Update" name ="Update" class="slds-float_left"  variant="Brand" onclick={handleClick}></lightning-button>
+            <!--<lightning-button label = "Clear" name ="Clear" class="slds-float_right" variant="Brand" onclick={handleClear}></lightning-button>-->
+        </div>
+    </lightning-card>
+</template>

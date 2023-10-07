@@ -1,0 +1,15 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant = "narrow" title = "Lightning Data Table Custom Column">
+        <div class = "slds-var-m-around_medium">
+            <c-data-table-custom-column 
+            key-field = "Id" 
+            data={accountsList} 
+            columns ={columnsList}
+            onsave ={handleSave}
+	        draft-values={saveDraftValues}
+            hide-checkbox-column="true"
+            ></c-data-table-custom-column>   
+        </div>
+    </lightning-card>
+</template>

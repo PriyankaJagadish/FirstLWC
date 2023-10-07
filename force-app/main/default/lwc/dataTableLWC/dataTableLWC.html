@@ -1,0 +1,44 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant = "narrow" title = "Lightning Data Table" icon-name= "standard: account">
+        <lightning-button variant = "Brand" label = "Get Selected Rows" onclick={handleClick}></lightning-button>
+        <div class = "slds-var-m-around_medium">
+            <!--<lightning-datatable 
+            key-field= "Id" 
+            data={accountsList.data} 
+            columns={columnsList}
+            hide-checkbox-column="true"
+            show-row-number-column="true"
+            row-number-offset="5"
+            >
+            </lightning-datatable>-->
+
+            <!--<lightning-datatable 
+            key-field= "Id" 
+            data={accountsList.data} 
+            columns={columnsList}
+            max-row-selection="1"
+            >
+            </lightning-datatable>-->
+
+            <!--OnRowSelection
+            <lightning-datatable 
+            key-field= "Id" 
+            data={accountsList.data} 
+            columns={columnsList}
+            onrowselection={handleSelect}
+            >
+            </lightning-datatable>-->
+            
+            <!--OnRowAction-->
+            <lightning-datatable 
+            key-field= "Id" 
+            data={accountsList.data} 
+            columns={columnsList}
+            onrowaction={handleRowAction}
+            >
+            </lightning-datatable>
+
+        </div>
+    </lightning-card>
+</template>

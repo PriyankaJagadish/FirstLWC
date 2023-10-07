@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Log Complaint">
+        <div class="slds-var-p-around_medium">
+            <lightning-record-view-form object-api-name = "Account" record-id = {recordId}>
+                <lightning-output-field field-name = "Name"></lightning-output-field>
+            </lightning-record-view-form>
+            <lightning-combobox 
+                name = "case"
+                label = "Select Case"
+                value = {selectedCase}
+                options = {caseOptions}
+                onchange={handleCaseChange} 
+                required = "true">
+            </lightning-combobox>
+            <lightning-combobox 
+                name = "Log Complaint"
+                label = "Complaint"
+                value = {selectedIssue}
+                options = {issues}
+                onchange={handleOption}
+                required = "true">
+            </lightning-combobox>
+            <lightning-textarea value ={comments} name = "comments" onchange={handleChange} label = "Comments" required="true"></lightning-textarea>
+        </div>
+        <div class="slds-box slds-clearfix">
+            <lightning-button name = "createcomp" variant = "Brand" label = "Log Complaint" class="slds-float_left" onclick = {handleCreate}></lightning-button>
+            <lightning-button label = "Back" variant = "Brand" class="slds-float_right" onclick={handleBack}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

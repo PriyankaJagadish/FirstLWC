@@ -1,0 +1,25 @@
+<aura:component implements="flexiPage:availableForAllPageTypes" access = "global">
+    <aura:attribute name = "messageReceived" type = "String"></aura:attribute>
+    <aura:attribute name = "messageToPublish" type = "String"></aura:attribute>
+<lightning:messageChannel
+    type = "SimpleMessageChannel__c"
+    scope = "APPLICATION"
+    onMessage = "{!c.handleMessage}"
+    aura:id = "SimpleMessageChannel"
+>
+</lightning:messageChannel>
+
+<lightning:card title = "LMS AURA SUBSCRIBER">
+    <div class = "slds-var-p-around_medium">
+        <h1>Received Message</h1>
+        <p>{!v.messageReceived}</p>
+    </div> 
+
+    <div class = "slds-var-p-around_medium">
+        <lightning:input type ="text" aura:id="txtMessage" onchange="{!c.handleChange}"></lightning:input>
+
+        <lightning:button variant="Brand" label = "Publish Message" onclick="{!c.publishMessage}"></lightning:button>
+    </div>
+
+</lightning:card>
+</aura:component>	

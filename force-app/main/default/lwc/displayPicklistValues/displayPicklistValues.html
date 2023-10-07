@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title = "Display Picklist Values Based on Record type">
+        <template if:true = {recordTypeId}>
+			<lightning-combobox 
+                name = "Record Type"
+                label = "Select Record type"
+                value = {value}
+                options = {recordTypeId}
+                onchange={handleChange}>
+            </lightning-combobox>
+            <p> Selected value is : {value}</p>
+        </template>
+
+        <template if:true = {industryOptions}>
+			<lightning-combobox 
+                name = "Industry"
+                label = "Select Industry"
+                value = {indValue}
+                options = {industryOptions}
+                onchange={handleChange1}>
+            </lightning-combobox>
+            <p> Selected value is : {indValue}</p>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,30 @@
+<aura:component controller="AccountController" implements="flexiPage:availableForAllPageTypes" access = "global"> 
+    <aura:attribute name = "rating" type = "String"></aura:attribute> 
+    <aura:attribute name="accountList" type="List" />
+
+    <lightning:messageChannel
+    type = "SimpleMessageChannel__c"
+    scope = "APPLICATION"
+    onMessage = "{!c.handleMessage}"
+    aura:id = "SimpleMessageChannel"
+    >
+    </lightning:messageChannel>
+
+    <lightning:card title = "Get Account Records on Rating Aura">
+        <div class = "slds-var-p-around_medium">
+            <h1>Received Rating</h1>
+            <p>{!v.rating}</p>
+        </div> 
+        <div>
+            <lightning:button variant="Brand" label = "Get Accounts" onclick="{!c.handleClick}"></lightning:button>
+        </div>
+        <div class = "slds-var-p-around_medium">
+            <aura:iteration items="{!v.accountList}" var="acc">
+                <div class = "slds-box slds-box_xx-small">
+                    <p>{!acc.Name}</p>
+                    <p>{!acc.Rating}</p>
+                </div>
+            </aura:iteration>
+        </div>
+    </lightning:card>
+</aura:component>	

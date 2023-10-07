@@ -1,0 +1,48 @@
+<template>
+    <lightning-card>
+        <div class="slds-box slds-clearfix" >
+            <lightning-button label = "Get Employee Details" class="slds-float_left" variant="Brand" onclick = {getData}>
+            </lightning-button>
+        </div>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12">
+                <template if:false ={isEmpAvailable}>
+                <template iterator:emp = {employees}>
+                    <div class="slds-grid slds-gutters" key={emp.value.Code}>
+                        <template if:true = {emp.first}>
+                            <div class="slds -col slds-size_1-of-2">
+                                <img style = "height: 150px; width: 150px;" src = {emp.value.Photo}>     
+                            </div>
+                            <div class="slds -col slds-size_2-of-2">
+                                <b>Name :  {emp.value.Name}</b><br>
+                                Email: {emp.value.Email}
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+                <template if:true ={isEmpAvailable}>
+                    <template for:each = {selectedEmployee} for:item="emp1">
+                        <div class="slds-grid slds-gutters" key={emp1.Code}>
+                            
+                                <div class="slds -col slds-size_1-of-2">
+                                    <img style = "height: 150px; width: 150px;" src = {emp1.Photo}>     
+                                </div>
+                                <div class="slds -col slds-size_2-of-2">
+                                    <b>Name :  {emp1.Name}</b><br>
+                                    Email: {emp1.Email}
+                                </div> 
+                        </div>
+                    </template>
+                </template>    
+                <template if:false ={isRecAvailable}>
+                    <b>{result}</b>
+                </template> 
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-box slds-clearfix" >
+            <lightning-button name = "Previous" label="Prev" variant="Brand" class="slds-float_left" onclick={handleClick}></lightning-button>            
+            <lightning-button name = "Next" label="Next" variant="Brand" class="slds-float_right" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

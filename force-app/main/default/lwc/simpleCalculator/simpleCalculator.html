@@ -1,0 +1,17 @@
+
+<template>
+    <div class = "slds-box slds-theme_shade">
+        <lightning-input type = "number" name = "input1" value = {number1} label = "Input#1" onchange= {handleChange}></lightning-input>
+        <lightning-input type = "number" name = "input2" value = {number2} label = "Input#2" onchange= {handleChange}></lightning-input>
+    </div>
+    <div class = "slds-box slds-theme_shade">
+        <lightning-button label = "Add" name = "Add" variant= "brand" onclick =  {handleClick}></lightning-button>&nbsp;&nbsp;
+        <lightning-button label = "Sub" name = "Sub" variant= "brand" onclick =  {handleClick}></lightning-button>&nbsp;&nbsp;
+        <lightning-button label = "Mul" name = "Mul" variant= "brand" onclick =  {handleClick}></lightning-button>&nbsp;&nbsp;
+        <lightning-button label = "Div" name = "Div" variant= "brand" onclick =  {handleClick}></lightning-button>&nbsp;&nbsp;
+        <lightning-button label = "Clear" name = "Clear" variant= "brand" onclick =  {clear}></lightning-button>
+    </div>
+    <div class = "slds-box slds-theme_shade">
+        <B>Answer : {result} </B> 
+    </div> 
+</template>

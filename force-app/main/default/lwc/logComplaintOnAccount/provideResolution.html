@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Provide Resoultion">
+        <div class="slds-var-p-around_medium">
+            <lightning-record-view-form object-api-name = "Account" record-id = {recordId}>
+                <lightning-output-field field-name = "Name"></lightning-output-field>
+            </lightning-record-view-form>
+            <lightning-combobox 
+                name = "case"
+                label = "Select Case"
+                value = {selectedCase}
+                options = {caseOptions}
+                onchange={handleCaseChange} 
+                required = "true">
+            </lightning-combobox>
+            <lightning-combobox 
+                name = "List Complaint"
+                label = "Complaint"
+                value = {selectedComplaint}
+                options = {complaintsList}
+                onchange={handleComplaint}
+                required = "true">
+            </lightning-combobox>
+            <lightning-textarea value ={comments} name = "comments" label = "Comments" read-only></lightning-textarea>
+            <lightning-textarea value ={resolution} name = "resolution" onchange={handleChange} label = "Resolution"></lightning-textarea>
+        </div>
+        <div class="slds-box slds-clearfix">
+            <lightning-button name = "update complaint" variant = "Brand" class="slds-float_left"  label = "Update Complaint with Resolution" onclick = {handleUpdate}></lightning-button>
+            <lightning-button label = "Back" variant = "Brand"  class="slds-float_right"  onclick={handleBack}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

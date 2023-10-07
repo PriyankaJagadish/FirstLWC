@@ -1,0 +1,27 @@
+<!-- sldsValidatorIgnore -->
+
+<template>
+    <lightning-card title="Send Email">
+        <div class="slds-var-p-around_medium">
+            <!-- Input fields for email address, subject, and message -->
+            <lightning-combobox 
+                name = "fromEmail"
+                label = "From"
+                value = {selectedEmail}
+                options = {fromEmail}
+                placeholder = "test@gmail.com"
+                onchange={handleOption} >
+            </lightning-combobox>
+            <lightning-input label="To" type="email" name = "toEmail" value={toEmail} onchange={handleChange}></lightning-input>
+            <lightning-input label="Subject" type="text" name = "subject" value={subject} onchange={handleChange}></lightning-input>
+            <p>Mail Body</p>
+            <lightning-input-rich-text value ={message} name = "body" onchange={handleChange} label = "Mail Body"></lightning-input-rich-text>
+            
+            <div class="slds-var-m-top_medium">
+                <!-- Button to send the email -->
+                <lightning-button label="✉️ Send" variant="brand" onclick={sendEmail}></lightning-button>
+            </div>
+       
+        </div>
+    </lightning-card>
+</template>

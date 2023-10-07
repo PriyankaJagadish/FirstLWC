@@ -1,0 +1,37 @@
+<template>
+    <lightning-card>
+        <lightning-button label = "Get Employee Details" variant="Brand" onclick =  {getData}></lightning-button>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item padding="around-small" size="12">      
+                <template if:false ={isEmpAvailable}>     
+                    <template for:each={employees} for:item="emp">
+                        <div class="slds-grid slds-gutters" key={emp.Code}>
+                            <div class="slds -col slds-size_1-of-2">
+                                <img style = "height: 150px; width: 150px;" src = {emp.Photo}>     
+                            </div>
+                            <div class="slds -col slds-size_2-of-2">
+                                <b>Name :  {emp.Name}</b><br>
+                                Email: {emp.Email}
+                            </div>
+                        </div>
+                    </template> 
+                </template>
+                <template if:true ={isEmpAvailable}>     
+                    <template for:each={filteredEmployees} for:item="emp">
+                        <div class="slds-grid slds-gutters" key={emp.Code}>
+                            <div class="slds -col slds-size_1-of-2">
+                                <img style = "height: 150px; width: 150px;" src = {emp.Photo}>     
+                            </div>
+                            <div class="slds -col slds-size_2-of-2">
+                                <b>Name :  {emp.Name}</b><br>
+                                Email: {emp.Email}
+                            </div>
+                        </div>
+                    </template> 
+                </template>       
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-input name = "Name" value ={fName} placeholder=" Type Name Here... " onchange={handleChange}></lightning-input>
+        <lightning-button name = "Search" label="Search" variant="Brand" onclick={handleClick}></lightning-button>  
+    </lightning-card>
+</template>

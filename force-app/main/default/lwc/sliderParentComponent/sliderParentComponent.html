@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title = "Parent Component">
+        <div>
+            <lightning-input label = "Enter the Slider Value" onchange={handleChange}></lightning-input>
+            <c-slider-child-component slidervalue={sliderval} maxslidervalue ={maxslidervalue}>
+            </c-slider-child-component>
+        </div>
+        <div slot = "actions">
+            <lightning-button label = "Reset" variant = "brand" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
+   
+    

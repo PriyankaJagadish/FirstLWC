@@ -1,0 +1,16 @@
+<template>
+    <lightning-card variant="base" title = "Complaints">
+        <div>
+          <template lwc:if={complaintsList}>
+              <template for:each= {complaintsList} for:item="complaint">
+                  <div class = "slds-box slds-var-m-around_medium" key = {complaint.id}>
+                      <p>Case Number : {complaint.Case__r.CaseNumber}</p>
+                      <p>Complaint Type : {complaint.Complaint_Type__c}</p>
+                      <p>Comments : {complaint.Comments__c}</p>
+                      <p>Resolution : {complaint.Resolution__c}</p>
+                  </div>
+              </template>
+          </template>
+        </div>
+      </lightning-card>
+</template>

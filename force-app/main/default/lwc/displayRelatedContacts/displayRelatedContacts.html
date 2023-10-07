@@ -1,0 +1,19 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base" title = "Related Contacts">
+      <div>
+        <lightning-button label ="Get Contacts" onclick={handleClick}></lightning-button>
+      </div>
+      <div>
+        <template lwc:if={contactsList}>
+            <template for:each= {contactsList} for:item="contact">
+                <div class = "slds-box slds-var-m-around_medium" key = {contact.id}>
+                    <p>First Name : {contact.FirstName}</p>
+                    <p>Last Name : {contact.LastName}</p>
+                    <p>Phone : {contact.Phone}</p>
+                    <p>Email : {contact.Email}</p>
+                </div>
+            </template>
+        </template>
+      </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <div class = "slds-box slds-theme_shade" >
+        <div class = {colorcss}><b>Welcome to LWC</b></div>
+        <lightning-input name= "txtFirstName" value ={name} label = "Enter Name" onchange = {handleChange}></lightning-input>
+        <div class = "slds-box slds-theme_shade">
+            <lightning-button label = "Red" onclick =  {handleClick}></lightning-button>&nbsp;&nbsp;
+            <lightning-button label = "Blue"  onclick =  {handleClick}></lightning-button><br>
+        </div>
+         Wecome! {name}
+    </div>
+</template>

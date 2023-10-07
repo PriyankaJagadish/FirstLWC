@@ -1,0 +1,17 @@
+<template>
+    <lightning-modal-header label={content}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="slds-var-p-around_small">
+           <p> A modal (also called a modal window or lightbox) is a web page element that displays in front of and deactivates all other page content. To return to the main content, the user must engage with the modal by completing an action or by closing it. Modals are often used to direct user's attention to an important action or piece of information on a website or application.</p>
+           <p>The purpose of modals can be summed up in one word: focus. If you need visitors to focus on something simple, a modal window is one of the most effective means to do so. Users must either close the modal, or complete a specific action within it (e.g., reading a message and clicking “OK”, filling out a form, etc.).</p>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div class="slds-var-m-top_small slds-align_absolute-center">
+            <lightning-button variant="Neutral" label="Close" class="slds-var-m-left_x-small" onclick={handleClose}>
+            </lightning-button>
+            <lightning-button variant="brand" class="slds-var-m-left_x-small" label="Save" onclick={handleClose}>
+            </lightning-button>
+        </div>
+    </lightning-modal-footer>
+</template>

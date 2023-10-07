@@ -1,0 +1,32 @@
+<template>
+    <lightning-card>
+        <div>
+            <b>Total Number of fields Used:</b>
+            {noOfFields}
+        </div>
+        <div>
+            <b>Total Number of Custom Fields:</b>
+            {customCount}
+        </div>
+        <div>
+            <b>Total Number of Picklist Fields:</b>
+            {pickListCount}
+        </div>
+        <div>
+            <b>Total Number of Record Types:</b>
+            {noOfRecordTypes}
+        </div>
+        <div>
+            <b>List Of Field Api Names: </b>
+            <template for:each={fieldApiNames} for:item="field">
+            <div class="slds-box slds-box_xx-small" key = {field.id}>
+                <lightning-layout vertical-align="center" horizontal-align="spread">
+                    <lightning-layout-item padding = "horizontal-small">
+                        {field}
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

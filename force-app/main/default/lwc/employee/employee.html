@@ -1,0 +1,25 @@
+<template>
+    <lightning-card>
+        <div class = "slds-box slds-theme_shade">
+            <lightning-input name = "salary" value={checkSal} label = "Enter the Salary" onchange= {handleChange}></lightning-input>  
+        </div>
+        <div class = "slds-box slds-theme_shade">
+           <lightning-button label = "Get Employee Details"  onclick =  {handleClick}></lightning-button>
+        </div> 
+        
+        <template if:true ={isEmpAvailable}>
+            <template for:each={filteredEmployees} for:item="emp">
+                <div key = {emp.name}>
+                    <b>    
+                        {emp.name}<br> 
+                        {emp.salary}<br> 
+                        {emp.position}<br> <hr>
+                    </b>
+                </div>
+            </template>     
+        </template> 
+        <template if:false={isEmpAvailable}>
+            <b>No Employee Available with the mentioned Salary!</b>
+        </template>       
+    </lightning-card>
+</template>

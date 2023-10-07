@@ -1,0 +1,15 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant = "narrow" title = "Lightning Data Table Inline Edit" icon-name= "standard: account">
+        <div class = "slds-var-m-around_medium">
+            <lightning-datatable 
+                key-field= "Id" 
+                data={accountsList} 
+                columns={columnsList}
+	            onsave ={handleSave}
+	            draft-values={saveDraftValues}
+            >
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

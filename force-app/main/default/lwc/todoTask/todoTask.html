@@ -1,0 +1,37 @@
+<!-- sldsValidatorIgnore -->
+
+<template>
+  <lightning-card name="todo">
+    <lightning-layout>
+      <lightning-layout-item padding="around-small" size="12">
+          <template for:each={taskArray} for:item="task">
+            <div class="slds-box slds-box_xx-small" key={task.id}>
+              <lightning-layout vertical-align="center" horizontal-align="spread">
+                <lightning-layout-item padding = "horizontal-small">
+                  {task.name}
+                </lightning-layout-item>
+                <lightning-layout-item padding="horizontal-small">
+                  <lightning-button-icon icon-name="utility:error" alternative-text="Click to Delete" title="delete" name = {task.id} onclick={deleteTask}>
+                  </lightning-button-icon>
+                </lightning-layout-item>
+              </lightning-layout>
+            </div>
+          </template>
+      </lightning-layout-item>
+    </lightning-layout>
+
+
+    <footer class="slds-card__footer">
+      <lightning-layout horizontal-align="spread">
+        <lightning-layout-item padding="around-small" size="10">
+          <lightning-input type="text" name="task" variant="label-hidden" value={newTask} onchange={handleChange}
+            label="New Task" placeholder="Enter Task" required>
+          </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item padding="around-small" size="2">
+          <lightning-button variant="brand" label="Add" onclick={handleClick}></lightning-button>
+        </lightning-layout-item>
+      </lightning-layout>
+    </footer>
+  </lightning-card>
+</template>

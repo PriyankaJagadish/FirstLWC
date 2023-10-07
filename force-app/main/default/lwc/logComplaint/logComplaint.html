@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Log Complaint">
+        <div class="slds-var-p-around_medium">
+            <!-- Input fields for email address, subject, and message -->
+            <lightning-record-view-form object-api-name = "Case" record-id = {recordId}>
+                <lightning-output-field field-name = "AccountId"></lightning-output-field>
+            </lightning-record-view-form>
+            <lightning-combobox 
+                name = "Log Complaint"
+                label = "Complaint"
+                value = {selectedIssue}
+                options = {issues}
+                onchange={handleOption}
+                required = "true">
+            </lightning-combobox>
+            <lightning-textarea value ={comments} name = "comments" onchange={handleChange} label = "Comments" required="true"></lightning-textarea>
+            
+        </div>
+        <div class="slds-var-p-around_medium">
+            <lightning-button name = "createcomp" label = "Log Complaint" onclick = {handleCreate}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
