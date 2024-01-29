@@ -13,7 +13,7 @@ export default class RecordEditFormModal extends LightningModal  {
     successHandler(event){
         this.dispatchEvent(new ShowToastEvent({
             title: 'Success',
-            message: 'Contact Updated Successfully!' ,
+            message: 'Contact Updated Successfully!',
             variant: 'success'
         }));
         this.close('Save');

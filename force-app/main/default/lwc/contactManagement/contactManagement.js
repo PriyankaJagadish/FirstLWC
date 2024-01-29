@@ -35,11 +35,13 @@ selectedRows = [];
     contactsList(result){
         this.wiredContacts = result;
         const {data,error} = result;
+        
         if(data){
             //Ref : https://www.youtube.com/watch?v=mWLJkOYb7lg&list=PLpEq6cFuSkoEy1MYR25DPbcrunBCGci9O&index=2
             //To fetch the Account Name which is in the Array of Objects returned. 
             //But it is available in the 2nd layer of the data fetched. So we need to map the original array
             //so loop the array values one by one and get the data.
+            console.log(data);
             this.contacts = data.map(contact=>{
                 let flatContact = {...contact};
                 flatContact.AccountName = contact.Account.Name;
@@ -73,7 +75,7 @@ selectedRows = [];
             alert('Please Select Rows to Delete!');
             return;
         }
-        //The selected Rows from DataTable will have all the vallues like Id,FName,LastName,Email,Phone etc.
+        //The selected Rows from DataTable will have all the values like Id,FName,LastName,Email,Phone etc.
         //But we want only the Id to delete the Contact. So we are mapping the array of selectedRows and getting
         //only the ContactId in a new array contactIds
         const contactIds = this.selectedRows.map(contact=> contact.Id);

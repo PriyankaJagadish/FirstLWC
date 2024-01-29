@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title = 'Contact Lookup'>
+        <lightning-record-edit-form object-api-name="Contact">
+            <lightning-input-field field-name="AccountId" onchange={handleChange}></lightning-input-field>
+            <lightning-textarea label = "Address" value ={accAddress}></lightning-textarea>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

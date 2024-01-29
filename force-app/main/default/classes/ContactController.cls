@@ -67,4 +67,24 @@ public class ContactController {
        public static List<Contact> getContactsOnUser(String userId){
             return[Select FirstName, LastName,Phone,Email from Contact where OwnerId =: userId];
        }
+
+       //Save Multiple Contacts
+       @AuraEnabled
+       public static ResponseWrapper saveMultipleContacts(List<Contact> conList){
+        ResponseWrapper response = new ResponseWrapper();
+        try {
+            insert conList;
+            response.isSuccess = true;
+        } catch (Exception e) {
+            response.isSuccess = false;
+            response.message = e.getMessage();
+        }
+        return response;
+       }
+       public class ResponseWrapper{
+        @AuraEnabled
+        public boolean isSuccess{get;set;}
+        @AuraEnabled
+        public String message{get;set;}
+       }
 }

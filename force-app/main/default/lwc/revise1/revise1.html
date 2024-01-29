@@ -1,0 +1,11 @@
+<!-- sldsValidatorIgnore -->
+<template>
+   <Lightning-card title = 'Accounts-Revise1'>
+        <lightning-button label = 'Fetch Accounts' onclick={handleClick}></lightning-button>
+        <lightning-datatable
+            key-field="Id"
+            data={accountsList}
+            columns={columnsList}>
+        </lightning-datatable>
+   </Lightning-card> 
+</template>

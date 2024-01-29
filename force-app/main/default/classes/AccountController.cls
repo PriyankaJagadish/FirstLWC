@@ -10,12 +10,17 @@ public class AccountController{
     }
     @AuraEnabled(Cacheable=true)
     public static List<Account> getAccountList1(){
-        return [Select Id,Name,Rating from Account];
+        return [Select Id,Name,Rating from Account Limit 10];
     }
     @AuraEnabled(Cacheable=true)
     public static List<Account> searchAccount(String accName){
         accName = '%' + accName + '%';
         return [Select Id, Name, AccountNumber,BillingState from Account where Name like :accName];
+    }
+    @AuraEnabled(Cacheable=true)
+    public static List<Account> getAccountAddress(String accId){
+        return [Select BillingStreet,BillingCity,BillingState,BillingPostalCode,Billingcountry from Account
+        where Id =:accId and BillingStreet != null];
     }
 
     @AuraEnabled
@@ -34,13 +39,13 @@ public class AccountController{
     }
 
 
-    /*@AuraEnabled(Cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static List<Account> getAllAccounts(String billingCity)
     {
         List<Account> accList = [Select Id,Name from Account where billingState =: billingCity WITH SECURITY_ENFORCED];
         System.debug(accList);
         return accList;
-    }*/
+    }
 
     
 }

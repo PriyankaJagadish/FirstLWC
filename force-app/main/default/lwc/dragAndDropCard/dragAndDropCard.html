@@ -1,0 +1,26 @@
+<template>
+    <template if:true ={isSameStage}>
+        <li class = "slds-item slds-var-m-around_small" draggable="true" ondragstart={itemDragStart}>
+            <article class = "slds-tile slds-tile_board">
+                <h3 class = "slds-truncate" title = {records.Name}>
+                    <a href="#" data-id = {records.Id} onclick= {navigateOppHandler}>
+                        <span class = "slds-truncate" data-id={records.Id}>
+                            {records.Name}
+                        </span>
+                    </a>
+                </h3>
+                <div class="slds-tile__detail slds-text-body_small">
+                    <p class = "slds-text-heading_small"> Amount:${records.Amount}</p>
+                    <p class = "slds-truncate" title ={records.AccountName}>
+                        <a href="#" data-id = {records.AccountId} onclick= {navigateAccHandler}>
+                            <span class = "slds-truncate" data-id={records.AccountId}>
+                                {records.AccountName}
+                            </span>
+                        </a>
+                    </p>
+                    <p class = "slds-truncate" title={records.CloseDate}>Closing {records.CloseDate}</p>
+                </div>  
+            </article>
+        </li>
+    </template>
+</template>
