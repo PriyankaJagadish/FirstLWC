@@ -1,0 +1,19 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-record-picker label="Accounts" 
+                             placeholder = "Search..." 
+                             object-api-name="Account"
+                             onchange={handleChange}
+                             value ={accId}
+                             filter ={filter}
+                             matching-info={matchingInfo}>
+    </lightning-record-picker>
+
+    <br/><br/>
+    <lightning-datatable key-field="id"
+                         columns = {columnsList}
+                         data = {dataList}>
+    </lightning-datatable>
+
+</template>

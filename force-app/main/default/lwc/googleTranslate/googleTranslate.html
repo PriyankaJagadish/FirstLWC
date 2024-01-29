@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title = "Google Translate" icon-name = "custom:custom14">
+        <div class = "slds-var-p-around_medium">
+            <lightning-combobox 
+                name = "Source Language"
+                label = "Select Source Language"
+                value = {sourceLanguage}
+                placeholder= "Select Source Language"
+                options = {options}
+                onchange = {SourceLanguageChangeHandler}>
+            </lightning-combobox>
+
+            <div class = "row">
+                <lightning-textarea 
+                    name="sourceText" 
+                    label="Enter Your Text To Translate" 
+                    onchange= {SourceTextChangeHandler}>
+                </lightning-textarea>
+            </div>
+
+            <lightning-combobox 
+                name = "Target Language"
+                label = "Select Target Language"
+                value = {targetLanguage}
+                placeholder= "Select Target Language"
+                options = {options}
+                onchange = {TargetLanguageChangeHandler}>
+            </lightning-combobox>
+
+            <div class = "slds-var-m-top_small slds-var-m-bottom_medium">
+                <h2 class = "slds-text-heading_small slds-var-m-bottom_small">
+                    <lightning-button 
+                        variant = "Brand" 
+                        name = "Translate" 
+                        label = "Translate" 
+                        onclick = {handleTranslate}>
+                    </lightning-button>
+                </h2>
+            </div>
+            
+            <div class = "row">
+                <lightning-textarea 
+                    name="targetText" 
+                    label="Translated Text" 
+                    value = {targetText}>
+                </lightning-textarea>
+            </div>
+        </div>
+    </lightning-card>
+</template>

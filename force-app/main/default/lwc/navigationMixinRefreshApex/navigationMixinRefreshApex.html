@@ -1,0 +1,16 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant = "narrow" title = "Accounts" icon-name= "standard: account">
+        <div class = "slds-var-m-around_medium">
+            <lightning-datatable 
+            key-field= "Id" 
+            data={accountsList} 
+            columns={columnsList}>
+            </lightning-datatable>
+        </div>
+        
+        <lightning-button label="New Account" variant = "Brand" onclick={newAccountPage1} ></lightning-button>   
+        <lightning-button label="Refresh" variant = "Brand" onclick ={handleRefresh}></lightning-button>   
+    </lightning-card>
+</template>

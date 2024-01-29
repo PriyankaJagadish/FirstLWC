@@ -2,6 +2,13 @@
 <template>
     <lightning-card title = "Receipt Creation">
         <div class = "slds-var-m-around_medium">
+            <lightning-datatable 
+            key-field= "Id" 
+            data={receiptsList} 
+            columns={columnsList}>
+            </lightning-datatable>
+        </div>
+        <div class = "slds-var-m-around_medium">
             <lightning-button label = "Create Receipt" variant = "Brand" onclick={openModal}></lightning-button>
         </div>
     </lightning-card>

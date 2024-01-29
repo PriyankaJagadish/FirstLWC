@@ -10,7 +10,7 @@
         action.setParams({
             Rating: component.get("v.rating")
         });
-
+        console.log(Rating);
         action.setCallback(this,function(response){
             let state = response.getState();  
             if(state === "SUCCESS"){

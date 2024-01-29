@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title = "Time Zone">
+        <lightning-input name = "CityName" label = "Enter City" onchange={handleChange}></lightning-input>
+        <lightning-button label = "Get Weather Details" name = "WeatherDetails" onclick={handleClick}>
+        </lightning-button>
+        <div class = "slds-var-m-around_medium">
+            City : {cityName}<br/>
+            Temperature : {temperature}<br/>
+            Minimum Temperature : {minTemp}<br/>
+            Maximum Temperature : {maxTemp}<br/>
+            Pressure : {pressure}<br/>
+            Humidity : {humidity}<br/>
+        </div>
+    </lightning-card>
+</template>

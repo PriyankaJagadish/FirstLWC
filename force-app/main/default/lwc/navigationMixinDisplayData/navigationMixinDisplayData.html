@@ -1,0 +1,15 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant = "narrow" title = "Accounts" icon-name= "standard: account">
+        <div class = "slds-var-m-around_medium">
+            <lightning-datatable 
+            key-field= "Id" 
+            data={accountsList.data} 
+            columns={columnsList}
+            >
+            </lightning-datatable>
+
+        </div>
+        <c-navigation-mixin-refresh-apex onrefresh={handleRefresh}></c-navigation-mixin-refresh-apex>
+    </lightning-card>
+</template>

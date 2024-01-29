@@ -1,0 +1,16 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card variant = "narrow" title = "Account" icon-name= "standard: account">
+        <div class = "slds-var-m-around_medium">
+            <!--OnRowAction-->
+            <lightning-datatable 
+            key-field= "Id" 
+            data={accountsList} 
+            columns={columnsList}
+            onrowaction={handleRowAction}
+            >
+            </lightning-datatable>
+
+        </div>
+    </lightning-card>
+</template>

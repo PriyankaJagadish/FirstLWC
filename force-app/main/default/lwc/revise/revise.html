@@ -1,0 +1,13 @@
+<template>
+        <lightning-card title = "Get Accounts">
+            <div class = "slds-var-m-around_medium">
+                <lightning-button label = "Fetch Accounts" onclick= {handleclick}>
+                </lightning-button>
+            </div>
+           <template for:each ={accountsList} for:item= 'account'>
+                <div key = {acccount.name}>
+                    {account.name}
+                </div>
+            </template>
+        </lightning-card>
+</template>

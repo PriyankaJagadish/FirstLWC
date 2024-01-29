@@ -1,0 +1,28 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title =' Get User Records'>
+        <div class = "slds-box">
+            <template if:true = {userList}>
+            <lightning-combobox
+                name="User List"
+                label="Users"
+                value={selectedUser}
+                options={userObject}
+                onchange={handleChange} >
+            </lightning-combobox>
+            <p>Selected User is: {selectedUser}</p>
+            
+                <lightning-datatable 
+                    key-field="id"
+                    data = {userList}
+                    columns = {userColumnsList}>
+                </lightning-datatable>
+            </template>
+        </div>
+        <div class = "slds-box slds-clearfix">
+            <lightning-button label = "Fetch Accounts" class="slds-float_left" variant = "Brand" onclick={getAccounts}></lightning-button>  
+            <lightning-button label = "Fetch Contacts" class="slds-float_right" variant = "Brand" onclick={getContacts}></lightning-button>  
+        </div>
+    </lightning-card>
+</template> 

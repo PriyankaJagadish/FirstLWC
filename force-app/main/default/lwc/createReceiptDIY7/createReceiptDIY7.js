@@ -1,6 +1,8 @@
-import { LightningElement,api } from 'lwc';
+import { LightningElement,api,wire } from 'lwc';
+import getReceipts from '@salesforce/apex/ReceiptController.getReceipts';
 import { createRecord } from 'lightning/uiRecordApi';
 import {ShowToastEvent } from 'lightning/platformShowToastEvent';
+import {refreshApex} from '@salesforce/apex';
 
 export default class CreateReceiptDIY7 extends LightningElement {
 @api recordId;
@@ -9,6 +11,22 @@ modeOfPay;
 date;
 showModal = false;
 errorMessage;
+
+columnsList = [
+    {label: 'Name', fieldName : "Name"},
+    {label: 'Contact', fieldName : "Contact__c"},
+    {label: 'Amount', fieldName : "Amount__c"}
+];
+receiptsList;
+wiredResponse;
+
+@wire(getReceipts,{conId : '$recordId'})
+receipts(response){
+    this.wiredResponse = response;
+    if(response.data){
+        this.receiptsList = response.data;
+    }
+}
 
     handleChange(event){
         const {name,value} = event.target;
@@ -37,7 +55,8 @@ errorMessage;
                 message: 'Record Id : ' + response.id,
                 variant: 'success'
             }))
-            fields = {};
+            //fields = {};
+            refreshApex(this.wiredResponse);
         })
         //getting the error message from the error object and displaying the message
         .catch(error=>{

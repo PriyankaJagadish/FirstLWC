@@ -5,6 +5,10 @@ public class AccountController{
         return [Select Id,Name,Rating from Account where Rating =:Rating];
     }
     @AuraEnabled(Cacheable=true)
+    public static List<Account> getAccountsOnUser(String userId){
+        return [Select Id,Name,Rating from Account where OwnerId =: userId];
+    }
+    @AuraEnabled(Cacheable=true)
     public static List<Account> getAccountList1(){
         return [Select Id,Name,Rating from Account];
     }

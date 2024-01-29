@@ -48,7 +48,5 @@ export default class DataTableDeleteRecord extends LightningElement {
                 variant: 'error'
             }))
         })
-
     }
-
 }

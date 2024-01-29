@@ -1,0 +1,16 @@
+<template>
+    <lightning-modal-header label="Edit Account"></lightning-modal-header>
+    <lightning-modal-body>
+        <div class = 'slds-var-m-top_medium'>
+            <lightning-record-edit-form record-id={recordId} object-api-name="Account" onsuccess={successHandler}>
+               <lightning-input-field field-name = "Name"></lightning-input-field>
+               <lightning-input-field field-name = "Phone"></lightning-input-field>
+               <lightning-input-field field-name = "Rating"></lightning-input-field>
+               <div class = 'slds-var-m-top_medium'>
+                  <lightning-button variant = "brand" type = "submit" label = "Save"></lightning-button>
+                  <lightning-button variant = "neutral" label = "Cancel" onclick={handleClose}></lightning-button>
+               </div>
+            </lightning-record-edit-form>
+         </div>
+    </lightning-modal-body>
+</template>

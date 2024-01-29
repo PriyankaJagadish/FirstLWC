@@ -33,9 +33,38 @@ public class ContactController {
            return con.Id;  
        }
 
+       //Get All Contacts
+       @AuraEnabled(Cacheable = true)
+       public static List<Contact> getAllContacts(String searchKey){
+        String search = '%'+searchKey+'%';
+        if(String.isNotBlank(search)){
+            return [SELECT Id,FirstName,LastName,Email,Phone,Title,AccountId,Account.Name FROM Contact WHERE AccountId != null AND FirstName LIKE :search];
+        }
+        else{
+            return [SELECT Id,FirstName,LastName,Email,Phone,Title,AccountId,Account.Name FROM Contact WHERE AccountId != null];
+        }
+       }
+       //Bulk Delete
+       @AuraEnabled
+       public static void bulkDeleteContacts(List<Id> conIds){ 
+            List<Contact> deleteCons = [SELECT Id from Contact where Id IN :conIds];
+            delete deleteCons;
+       }
+
+       
+       
        //Get Contacts for Account
        @AuraEnabled(Cacheable = true)
        public static List<Contact> getContacts(String accId){
-            return[Select FirstName, LastName,Phone,Email from Contact where AccountId =: accId];
+            List<Contact> conList = new List<Contact>();
+            if(accId != null){
+                conList = [Select FirstName, LastName,Phone,Email from Contact where AccountId =: accId];
+            }
+            return conList;
+       }
+       //Get Contacts for User
+       @AuraEnabled(Cacheable = true)
+       public static List<Contact> getContactsOnUser(String userId){
+            return[Select FirstName, LastName,Phone,Email from Contact where OwnerId =: userId];
        }
 }

@@ -1,0 +1,16 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title = "Contacts">
+        <div class = "slds-box">
+            <lightning-datatable
+                key-field= "id"
+                data={contactList}
+                columns={contactColumnsList}>   
+            </lightning-datatable>
+        </div>
+        <div>
+            <lightning-button label = "Back" variant = "Brand" onclick={handleBack}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -28,7 +28,7 @@ export default class LmsLWC extends LightningElement {
         }
     }
 
-    handleClick(event){
+   /* handleClick(event){
         console.log('Published');
         const msg = {
             lmsData :{
@@ -36,5 +36,23 @@ export default class LmsLWC extends LightningElement {
             }
         }
         publish(this.context,SAMPLEMSGCH,msg);
+    }*/
+    handleClick(event){
+        console.log('Published');
+        const msg = {
+            lmsData :{
+                value : this.ratingValue
+            }
+        }
+        this.publishedMessage(msg);
+    }
+
+    async publishedMessage(msg){
+        try{
+           await publish(this.context, SAMPLEMSGCH, msg);
+        }
+        catch(error){
+            console.log(error);
+        }
     }
 }
